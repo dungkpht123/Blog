@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:replace="admin/header::header-fragment"></header>
+<body class="hold-transition sidebar-mini">
+<style>
+    .ui-jqgrid tr.jqgrow td {
+        white-space: normal !important;
+        height: auto;
+        vertical-align: text-top;
+        padding-top: 2px;
+    }
+</style>
+<div class="wrapper">
+    <!-- header-fragment -->
+    <div th:replace="admin/header::header-nav"></div>
+    <!-- sidebar-fragment -->
+    <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Quản lý liên kết</h3>
+                    </div> <!-- /.card-body -->
+                    <div class="card-body">
+                        <div class="grid-btn">
+                            <button class="btn btn-info" onclick="linkAdd()"><i
+                                    class="fa fa-plus"></i>&nbsp;Thêm
+                            </button>
+                            <button class="btn btn-info" onclick="linkEdit()"><i
+                                    class="fa fa-pencil-square-o"></i>&nbsp;Sửa
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteLink()"><i
+                                    class="fa fa-trash-o"></i>&nbsp;Xoá
+                            </button>
+                        </div>
+                        <table id="jqGrid" class="table table-bordered">
+                        </table>
+                        <div id="jqGridPager"></div>
+                    </div><!-- /.card-body -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+        <div class="content">
+            <!-- （Modal） -->
+            <div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="linkForm">
+                                <div class="form-group">
+                                    <div class="alert alert-danger" id="edit-error-msg" style="display: none;">
+                                        Lỗi
+                                    </div>
+                                </div>
+                                <input type="hidden" class="form-control" id="linkId" name="linkId">
+                                <div class="form-group">
+                                    <label for="linkType" class="control-label">Thông tin bạn bè:</label>
+                                    <select class="form-control" id="linkType" name="linkType">
+                                        <option selected="selected" value="0">Chuỗi bạn bè</option>
+                                        <option value="1">Đề xuất</option>
+                                        <option value="2">Link liên kết</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkName" class="control-label">Tên:</label>
+                                    <input type="text" class="form-control" id="linkName" name="linkName"
+                                           placeholder="Vui lòng nhập tên" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkUrl" class="control-label">Url:</label>
+                                    <input type="url" class="form-control" id="linkUrl" name="linkUrl"
+                                           placeholder="Url" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkDescription" class="control-label">Link web:</label>
+                                    <input type="url" class="form-control" id="linkDescription" name="linkDescription"
+                                           placeholder="link web" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkRank" class="control-label">Xếp hạng:</label>
+                                    <input type="number" class="form-control" id="linkRank" name="linkRank"
+                                           placeholder="Xếp hạng" required="true">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ </button>
+                            <button type="button" class="btn btn-primary" id="saveButton">Lưu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal -->
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <div th:replace="admin/footer::footer-fragment"></div>
+</div>
+<!-- jQuery -->
+<script th:src="@{/admin/plugins/jquery/jquery.min.js}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script th:src="@{/admin/plugins/jQueryUI/jquery-ui.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{/admin/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{/admin/dist/js/adminlte.min.js}"></script>
+<script th:src="@{/admin/plugins/jqgrid-5.7.0/jquery.jqGrid.min.js}"></script>
+<script th:src="@{/admin/plugins/jqgrid-5.7.0/grid.locale-cn.js}"></script>
+<!-- sweetalert -->
+<script th:src="@{/admin/plugins/sweetalert/sweetalert.min.js}"></script>
+<script th:src="@{/admin/dist/js/public.js}"></script>
+<script th:src="@{/admin/dist/js/link.js}"></script>
+</body>
+</html>

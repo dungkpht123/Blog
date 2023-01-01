@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="footer">
+<body>
+<footer class="container">
+    <div class="site-footer">
+        <div class="copyright pull-left">
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            <span class="ft-warn">&heartsuit;</span>&nbsp;Theme
+            <a href="#">Jekyll</a>
+            &nbsp;•&nbsp;&copy;&nbsp;<a th:text="${configurations.get('footerAbout')}">Blog.</a> &nbsp;•&nbsp;
+        </div>
+        <a href="#" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+        <div class="pull-right">
+            ICP <a href="http://www.beian.miit.gov.cn" th:text="${configurations.get('footerICP')}">nvdung.20it1@vku.udn.vn</a>&nbsp;•&nbsp;
+            < href="javascript:window.scrollTo(0,0)">TOP</ a>
+        </div>
+    </div>
+    <!-- Third-Party JS -->
+    <script type="text/javascript" th:src="@{/blog/yummy-jekyll/plugins/geopattern/js/geopattern.min.js}"></script>
+    <!-- My JS -->
+    <script type="text/javascript" th:src="@{/blog/yummy-jekyll/assets/js/script.js}"></script>
+</footer>
+</body>
+</html>

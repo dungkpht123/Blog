@@ -1,0 +1,10 @@
+#Fri Dec 30 15:04:21 ICT 2022
+ct=central
+a=browser
+c=1
+s=0
+d=1672387461772
+v=2.2.100
+cmp=central
+cl=IE _11
+l=Specifies which browser was used for JBoss Tools Central

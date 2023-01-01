@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="blog/default/header::head-fragment"></head>
+<body>
+<header th:replace="blog/default/header::header-fragment"></header>
+<div class="widewrapper main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 blog-main">
+                <article class="blog-post">
+                    <div class="body">
+                        <div class="favorite-links">
+                            <th:block th:unless="${#lists.isEmpty(favoriteLinks)}">
+                                <h2>Chuỗi thân thiện</h2>
+                                <ul>
+                                    <th:block th:each="favoriteLink : ${favoriteLinks}">
+                                        <li><a th:href="@{${favoriteLink.linkUrl}}"
+                                               th:text="${favoriteLink.linkName}">Chuỗi thân thiện</a>
+                                            -
+                                            <th:block th:text="${favoriteLink.linkDescription}"></th:block>
+                                        </li>
+                                    </th:block>
+                                </ul>
+                            </th:block>
+                            <th:block th:unless="${#lists.isEmpty(recommendLinks)}">
+                                <h2>Trang web được đề xuất</h2>
+                                <ul>
+                                    <th:block th:each="recommendLink : ${recommendLinks}">
+                                        <li><a th:href="@{${recommendLink.linkUrl}}" th:text="${recommendLink.linkName}">Trang web được đề xuất</a>
+                                            -
+                                            <th:block th:text="${recommendLink.linkDescription}"></th:block>
+                                        </li>
+                                    </th:block>
+                                </ul>
+                            </th:block>
+                            <th:block th:unless="${#lists.isEmpty(personalLinks)}">
+                                <h2>Liên kết cá nhân</h2>
+                                <ul>
+                                    <th:block th:each="personalLink : ${personalLinks}">
+                                        <li><a th:href="@{${personalLink.linkUrl}}"
+                                               th:text="${personalLink.linkName}">Liên kết cá nhân</a>
+                                            -
+                                            <th:block th:text="${personalLink.linkDescription}"></th:block>
+                                        </li>
+                                    </th:block>
+                                </ul>
+                            </th:block>
+                            <h2 id="Link">Liên kết</h2>
+                            <p>Chào mừng đến với Chuỗi Hoán đổi bạn bè ^_^ Nhưng vui lòng đảm bảo rằng trạm của bạn có thể hoạt động bình thường.</p>
+                            <p>Địa chỉ thư của tôi là <th:block th:text="${configurations.get('yourEmail')Các yêu cầu định dạng như sauh:block> , 格式要求如下:</p>
+                            <ul>
+                                <li>Tên trang web: 13blogli>
+                               
+                            </ul>
+
+                            <p>Vui lòng đảm bảo rằng liên kết của bạn có hiệu lực trong một thời gian dài,Nếu không nó có thể được làm sạch.</p>
+
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer-fragment -->
+<footer th:replace="blog/default/footer::footer-fragment"></footer>
+<script th:src="@{/blog/default/js/jquery.min.js}"></script>
+<script th:src="@{/blog/default/js/bootstrap.min.js}"></script>
+<script th:src="@{/blog/default/js/modernizr.js}"></script>
+<script th:src="@{/blog/default/js/search.js}"></script>
+</body>
+</html>

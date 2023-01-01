@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<footer class="footer blog-footer" th:fragment="footer-fragment">
+    <div class="blog-text-center">
+        &copy;
+        <a th:text="${configurations.get('footerAbout')}">Blog.</a>  &nbsp;   • &nbsp;
+        Powered by <a href="" target="_blank" th:text="${configurations.get('footerCopyRight')}">Design Van Dung</a><br/>
+        ICP <a href="" th:text="${configurations.get('footerICP')}">Email : nvdung.20it1@vku.udn.vn</a>
+        <span class="ft-warn">&heartsuit;</span>
+        Theme <a rel="friend" href="" target="_blank"> </a> by <a href="" target="_blank"></a> & <a href="" target="_blank"></a>
+    </div>
+</footer>
+</html>
